@@ -11,7 +11,7 @@
 			<p><strike style="opacity: 0.4;"><%= todo_item.content %></strike></p>
 		</div>
 		<div class="trash">
-			<%= link_to "Delete", todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "Are you realy sure?"} %>
+			<%= link_to "Delete", user_todo_list_todo_item_path(@user, @todo_list, todo_item.id), method: :delete, data: { confirm: "Are you realy sure?"} %>
 		</div>
 	<% else %>
 		<div class="complete">
@@ -21,7 +21,7 @@
 			<p><%= todo_item.content %></p>
 		</div>
 		<div class="trash">
-			<%= link_to "Delete", todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "Are you realy sure?"} %>
+			<%= link_to "Delete", user_todo_list_todo_item_path(@user, @todo_list, todo_item.id), method: :delete, data: { confirm: "Are you realy sure?"} %>
 		</div>
 	<% end %>
 </div>

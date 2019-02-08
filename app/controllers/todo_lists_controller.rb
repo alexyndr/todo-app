@@ -1,20 +1,27 @@
 class TodoListsController < ApplicationController
   before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :check_user
 
   # GET /todo_lists
   # GET /todo_lists.json
   def index
-    @todo_lists = TodoList.all
+    @user = User.find(params[:user_id])
+    @todo_lists = @user.todo_lists
+    #@todo_lists = TodoList.all
   end
 
   # GET /todo_lists/1
   # GET /todo_lists/1.json
   def show
+    @user = User.find(params[:user_id])
+    @todo_list = @user.todo_lists.find(params[:id])
   end
 
   # GET /todo_lists/new
   def new
-    @todo_list = TodoList.new
+    @user = User.find(params[:user_id])
+    @todo_list = @user.todo_lists.new
   end
 
   # GET /todo_lists/1/edit
@@ -24,18 +31,14 @@ class TodoListsController < ApplicationController
   # POST /todo_lists
   # POST /todo_lists.json
   def create
-    @todo_list = TodoList.new(todo_list_params)
+    @user = User.find(params[:user_id])
+    @todo_list = @user.todo_lists.create(todo_list_params)
 
-    respond_to do |format|
-      if @todo_list.save
-        format.html { redirect_to @todo_list, notice: 'Todo list was successfully created.' }
-        format.json { render :show, status: :created, location: @todo_list }
-      else
-        format.html { render :new }
-        format.json { render json: @todo_list.errors, status: :unprocessable_entity }
-      end
+    if @todo_list.save
+      redirect_to action: 'index'
     end
   end
+
 
   # PATCH/PUT /todo_lists/1
   # PATCH/PUT /todo_lists/1.json
@@ -54,14 +57,22 @@ class TodoListsController < ApplicationController
   # DELETE /todo_lists/1
   # DELETE /todo_lists/1.json
   def destroy
+    @user = User.find(params[:user_id])
+    @todo_list = @user.todo_lists.find(params[:id])
+
     @todo_list.destroy
-    respond_to do |format|
-      format.html { redirect_to todo_lists_url, notice: 'Todo list was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
+    redirect_to action: 'index'
   end
 
   private
+
+    def check_user
+      if current_user != User.find(params[:user_id])
+        redirect_to root_path
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_list
       @todo_list = TodoList.find(params[:id])
@@ -71,4 +82,5 @@ class TodoListsController < ApplicationController
     def todo_list_params
       params.require(:todo_list).permit(:title, :description)
     end
+  
 end

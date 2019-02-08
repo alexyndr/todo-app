@@ -16,6 +16,12 @@
 		<%= render "todo_items/form" %>
 	</div>
 </div>
+<div class="links">
+	<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> 
+	---
+	<%= link_to 'Back', user_todo_lists_path(@user) %>
+	---
+	<%= link_to 'Delete List', user_todo_list_path(current_user, @todo_list), method: :delete %>
+</div>
 
-<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
-<%= link_to 'Back', todo_lists_path %>
+
