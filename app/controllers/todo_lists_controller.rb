@@ -26,6 +26,17 @@ class TodoListsController < ApplicationController
 
   # GET /todo_lists/1/edit
   def edit
+    @user = User.find(params[:user_id])
+    @todo_list = @user.todo_lists.find(params[:id])
+  end
+
+  # PATCH/PUT /todo_lists/1
+  # PATCH/PUT /todo_lists/1.json
+  def update
+    @user = User.find(params[:user_id])
+    if @user.todo_lists.find(params[:id]).update(todo_list_params)
+      redirect_to action: 'index'
+    end
   end
 
   # POST /todo_lists
@@ -36,21 +47,6 @@ class TodoListsController < ApplicationController
 
     if @todo_list.save
       redirect_to action: 'index'
-    end
-  end
-
-
-  # PATCH/PUT /todo_lists/1
-  # PATCH/PUT /todo_lists/1.json
-  def update
-    respond_to do |format|
-      if @todo_list.update(todo_list_params)
-        format.html { redirect_to @todo_list, notice: 'Todo list was successfully updated.' }
-        format.json { render :show, status: :ok, location: @todo_list }
-      else
-        format.html { render :edit }
-        format.json { render json: @todo_list.errors, status: :unprocessable_entity }
-      end
     end
   end
 

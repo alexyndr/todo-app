@@ -1,7 +1,11 @@
 class TodoItemsController < ApplicationController
 
 	before_action :set_todo_list
-	before_action :set_todo_item, except: [:create]
+	before_action :set_todo_item, except: [:create, :new]
+
+	def new
+		@todo_item = @todo_list.todo_items.new
+	end
 
 	def create
 		@todo_item = @todo_list.todo_items.create(todo_item_params)
@@ -16,6 +20,15 @@ class TodoItemsController < ApplicationController
 		end
 		redirect_to user_todo_list_path(current_user, @todo_list)
 	end
+
+	def edit
+  end
+
+  def update
+    if @todo_item.update(todo_item_params)
+    	redirect_to user_todo_list_path(current_user, @todo_list)
+    end
+  end
 
 	def complete
 		@todo_item.update_attribute(:completed_at, Time.now)

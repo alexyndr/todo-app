@@ -12,6 +12,9 @@
 		</div>
 		<div class="trash">
 			<%= link_to "Delete", user_todo_list_todo_item_path(@user, @todo_list, todo_item.id), method: :delete, data: { confirm: "Are you realy sure?"} %>
+			<%= link_to "Edit", edit_user_todo_list_todo_item_path(@user, @todo_list, todo_item.id) %>
+			<%= link_to "Up" %>
+			<%= link_to "Down" %>
 		</div>
 	<% else %>
 		<div class="complete">
@@ -22,6 +25,9 @@
 		</div>
 		<div class="trash">
 			<%= link_to "Delete", user_todo_list_todo_item_path(@user, @todo_list, todo_item.id), method: :delete, data: { confirm: "Are you realy sure?"} %>
+			<%= link_to "Edit", edit_user_todo_list_todo_item_path(@user, @todo_list, todo_item.id) %>
+			<%= link_to "Up" %>
+			<%= link_to "Down" %>
 		</div>
 	<% end %>
 </div>
