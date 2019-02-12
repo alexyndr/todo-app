@@ -1,7 +1,7 @@
 class TodoItemsController < ApplicationController
 
-	before_action :set_todo_list
-	before_action :set_todo_item, except: [:create, :new]
+	before_action :set_todo_list, except: :complete
+	before_action :set_todo_item, except: [:create, :new, :complete]
 
 	def new
 		@todo_item = @todo_list.todo_items.new
@@ -31,8 +31,10 @@ class TodoItemsController < ApplicationController
   end
 
 	def complete
+		@todo_list = TodoList.find(params[:id])
+		@todo_item = @todo_list.todo_items.find(params[:todo_list_id])
 		@todo_item.update_attribute(:completed_at, Time.now)
-		redirect_to @todo_list, notice: "Todo item completed"
+		redirect_to  user_todo_list_path(current_user, @todo_list), notice: "Todo item completed"
 	end
 
 	private

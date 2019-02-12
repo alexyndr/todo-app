@@ -31,6 +31,7 @@ gem 'jquery-rails'
 # gem 'mini_magick', '~> 4.8'
 gem 'bootstrap'
 
+gem 'acts_as_list'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
