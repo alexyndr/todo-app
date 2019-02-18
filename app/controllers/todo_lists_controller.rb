@@ -1,5 +1,5 @@
 class TodoListsController < ApplicationController
-  before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_todo_list, only: [ :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :check_user
 
