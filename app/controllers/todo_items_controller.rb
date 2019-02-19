@@ -11,6 +11,16 @@ class TodoItemsController < ApplicationController
 		redirect_to user_todo_lists_path(current_user)
 	end
 
+	def move_up
+  	@todo_item.move_higher
+  	redirect_to user_todo_lists_path(current_user)
+	end
+
+	def move_down
+  	@todo_item.move_lower
+  	redirect_to user_todo_lists_path(current_user)
+	end
+
 	def destroy
 		if @todo_item.destroy
 			flash[:succes] = "Todo List item was deleted"

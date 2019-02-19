@@ -13,8 +13,8 @@
 		<div class="trash">
 			<%= link_to "Delete", user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id), method: :delete, data: { confirm: "Are you realy sure?"} %>
 			<%= link_to "Edit", edit_user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id) %>
-			<%= link_to "Up" %>
-			<%= link_to "Down" %>
+			<%= link_to "Up", move_up_user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id), method: :put %>
+			<%= link_to "Down", move_down_user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id), method: :put %>
 		</div>
 	<% else %>
 		<div class="complete">
@@ -26,8 +26,8 @@
 		<div class="trash">
 			<%= link_to "Delete", user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id), method: :delete, data: { confirm: "Are you realy sure?"} %>
 			<%= link_to "Edit", edit_user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id) %>
-			<%= link_to "Up" %>
-			<%= link_to "Down" %>
+			<%= link_to "Up", move_up_user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id), method: :put %>
+			<%= link_to "Down", move_down_user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id), method: :put %>
 		</div>
 	<% end %>
 </div>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   	resources :todo_items do
   		member do
   			patch :complete
+        put :move_up
+        put :move_down
   		end
   	end
   end
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
       resources :todo_items do
         member do
           patch :complete
+          put :move_up
+          put :move_down
         end
       end
     end
