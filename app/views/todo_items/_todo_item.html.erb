@@ -15,6 +15,7 @@
 			<%= link_to "Edit", edit_user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id) %>
 			<%= link_to "Up", move_up_user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id), method: :put %>
 			<%= link_to "Down", move_down_user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id), method: :put %>
+			<%= link_to "Deadline"  %>
 		</div>
 	<% else %>
 		<div class="complete">
@@ -28,6 +29,7 @@
 			<%= link_to "Edit", edit_user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id) %>
 			<%= link_to "Up", move_up_user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id), method: :put %>
 			<%= link_to "Down", move_down_user_todo_list_todo_item_path(@user, todo_item[:todo_list_id], todo_item.id), method: :put %>
+			<%= link_to "Deadline"  %>
 		</div>
 	<% end %>
 </div>

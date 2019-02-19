@@ -64,6 +64,10 @@ body {
 	padding: 1em 0;
 }
 
+.footer {
+height:50px;
+} 
+
 .todo_list_title {
 	text-align: center;
 	font-weight: 700;
@@ -92,7 +96,7 @@ body {
 
 .index_row {
 	padding: 2em;
-	border-bottom: 1px solid rgba(250,250,250, .3);
+	border-bottom: 0px solid rgba(250,250,250, .3);
 	.todo_list_sub_title {
 		margin-bottom: 0;
 	}

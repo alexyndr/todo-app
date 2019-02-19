@@ -1,5 +1,6 @@
 <% @todo_lists.each do |todo_list| %>
   <% @todo_list = todo_list %>
+  <div class="container">
   <div class="index_row clearfix" >
     <div class="todo_list_title clearfix" >
       <%= todo_list.title %></p>
@@ -17,14 +18,17 @@
       <%= link_to 'Delete List', user_todo_list_path(current_user, todo_list), method: :delete %>
     </div>
   </div>
+</div>
 <% end %>
 
+<div class="container">
 <div class="links">
   <%= link_to "New List", new_user_todo_list_path(current_user, @todo_list) %>
 </div>
 
 <div class="links">
   <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+</div>
 </div>
 
 <!--<p id="notice"><%= notice %></p>
