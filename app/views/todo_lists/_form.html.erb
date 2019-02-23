@@ -1,11 +1,15 @@
-<%= form_with model: ([@user, @todo_list]) do |form| %>
+<div class="index_row clearfix" >
+		<%= form_with model: ([@user, @todo_list]), local: true do |form| %>
+			  <div class="field">
+			  	<div class="todo_list_title clearfix" >
+			    	<%= form.label :title %>
+			    </div>
+			    <%= form.text_field :title %>
+			  </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+			  <div class="actions">
+			    <%= form.submit %>
+			  </div>
+		<% end %>
+	</div>
+</div>

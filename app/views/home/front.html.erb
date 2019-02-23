@@ -1,15 +1,16 @@
-<h1>Home#front</h1>
-<p>Find me in app/views/home/front.html.erb</p>
+<div class="container">
+	<h1>Home#front</h1>
+	<p>Find me in app/views/home/front.html.erb</p>
 
-<div class="links">
-  <%= link_to "Sign Up", new_user_registration_path %>
+	<div class="links">
+	  <%= link_to "Sign Up", new_user_registration_path %>
+	</div>
+
+	<div class="links">
+	  <%= link_to "Sign In", new_user_session_path %>
+	</div>
+
+	<div class="links">
+	  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+	</div>
 </div>
-
-<div class="links">
-  <%= link_to "Sign In", new_user_session_path %>
-</div>
-
-<div class="links">
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-</div>
-

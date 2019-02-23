@@ -1,10 +1,14 @@
-<b>Edit TODOS</b>
+<div class="container">
 
-<%=  form_with model: ([@todo_list, @todo_item]) do |f| %>
-	<%= f.text_field :content, placeholder: "Edit Todoss" %>
-	<%= f.submit %>
-<% end %>
+	<b>Edit TODOS</b>
 
-<div class="links">
-	<%= link_to 'Back', user_todo_list_path(current_user, @todo_list) %>
+		<%= form_with model: ([@todo_list, @todo_item]) do |f| %>
+			<%= f.text_field :content, placeholder: "Edit Todoss" %>
+			<%= f.date_select :deadline, start_year: DateTime.now.year, default: 3.days.from_now  %>
+			<%= f.submit %>
+		<% end %>
+
+	<div class="links">
+		<%= link_to 'Back', user_todo_lists_path(current_user) %>
+	</div>
 </div>

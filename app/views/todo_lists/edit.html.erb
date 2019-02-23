@@ -1,8 +1,10 @@
-<h1>Editing Todo List</h1>
+<div class="container">
+	<h1>Editing Todo List</h1>
 
-<%= render 'form', todo_list: @todo_list %>
+	<%= render 'form', todo_list: @todo_list %>
 
-<%#= link_to 'PlaceHolder', @todo_list %> 
-<div class="links">
-	<%= link_to 'Back', user_todo_lists_path(current_user) %>
+	<%#= link_to 'PlaceHolder', @todo_list %> 
+	<div class="links">
+		<%= link_to 'Back', user_todo_lists_path(current_user) %>
+	</div>
 </div>

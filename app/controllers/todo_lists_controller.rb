@@ -46,7 +46,11 @@ class TodoListsController < ApplicationController
     @todo_list = @user.todo_lists.create(todo_list_params)
 
     if @todo_list.save
-      redirect_to action: 'index'
+      respond_to do |format|
+        format.html { redirect_to action: 'index', notice: 'User was successfully created.' }
+        format.js
+        format.json { render json: @lists, status: :created, location: @lists }
+      end
     end
   end
 
@@ -76,7 +80,7 @@ class TodoListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_list_params
-      params.require(:todo_list).permit(:title, :description)
+      params.require(:todo_list).permit(:title)
     end
   
 end
