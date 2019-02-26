@@ -34,8 +34,12 @@ class TodoListsController < ApplicationController
   # PATCH/PUT /todo_lists/1.json
   def update
     @user = User.find(params[:user_id])
-    if @user.todo_lists.find(params[:id]).update(todo_list_params)
-      redirect_to action: 'index'
+    @todo_list = @user.todo_lists.find(params[:id])
+    if @todo_list.update(todo_list_params)
+      respond_to do |format|
+        format.js
+        format.html { redirect_to action: 'index', notice: 'List was updated.' }
+      end
     end
   end
 
@@ -47,9 +51,8 @@ class TodoListsController < ApplicationController
 
     if @todo_list.save
       respond_to do |format|
-        format.html { redirect_to action: 'index', notice: 'User was successfully created.' }
         format.js
-        format.json { render json: @lists, status: :created, location: @lists }
+        format.html { redirect_to action: 'index', notice: 'List was successfully created.' }
       end
     end
   end
@@ -60,9 +63,12 @@ class TodoListsController < ApplicationController
     @user = User.find(params[:user_id])
     @todo_list = @user.todo_lists.find(params[:id])
 
-    @todo_list.destroy
-
-    redirect_to action: 'index'
+    if @todo_list.destroy
+      respond_to do |format|
+        format.js
+        format.html { redirect_to action: 'index', notice: 'List was deleted.' }
+      end
+    end
   end
 
   private

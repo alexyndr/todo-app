@@ -1,12 +1,11 @@
 <div class="index_row clearfix" >
-		<%= form_with model: ([@user, @todo_list]), local: true do |form| %>
+		<%= form_with model: ([@user, @todo_list]), remote: true do |form| %>
 			  <div class="field">
 			  	<div class="todo_list_title clearfix" >
 			    	<%= form.label :title %>
 			    </div>
-			    <%= form.text_field :title %>
+			    <%= form.text_field :title, placeholder: "New Title" %>
 			  </div>
-
 			  <div class="actions">
 			    <%= form.submit %>
 			  </div>

@@ -6,45 +6,53 @@ class TodoItemsController < ApplicationController
 		@todo_item = @todo_list.todo_items.new
 	end
 
+=begin
 	def deadline
-		puts @todo_item.inspect
+		#puts @todo_item.inspect
 		@todo_item.update(todo_item_params)
 		if @todo_item[:deadline] < Time.now
+			@todo_item.update_attribute(:completed_at, nil)
 			complete
 		else
-			redirect_to user_todo_lists_path(current_user)
+			@todo_item.update_attribute(:completed_at, Time.now)
+			complete
 		end
 		#redirect_to user_todo_lists_path(current_user), notice: "Deadline is added"
 	end
+=end
 
 	def create
 		@todo_item = @todo_list.todo_items.create(todo_item_params)
-
 		respond_to do |format|
-			format.html { redirect_to user_todo_lists_url }
-			format.js
-		end
+        format.js
+        format.html { redirect_to action: 'index', notice: 'Item was created.' }
+    end
 	end
 
 	def move_up
-  	@todo_item.move_higher
-  	redirect_to user_todo_lists_path(current_user)
+  	if @todo_item.move_higher
+  		respond_to do |format|
+        format.js
+        format.html { redirect_to action: 'index' }
+    	end
+		end
 	end
 
 	def move_down
-  	@todo_item.move_lower
-  	redirect_to user_todo_lists_path(current_user)
+  	if @todo_item.move_lower
+  	respond_to do |format|
+        format.js
+        format.html { redirect_to action: 'index' }
+    	end
+		end
 	end
 
 	def destroy
 		if @todo_item.destroy
 			respond_to do |format|
-				format.js
-				format.html { redirect_to user_todo_lists_url }
-			end
-			flash[:succes] = "Todo List item was deleted"
-		else
-			flash[:error] = "Todo List item could not be deleted"
+        format.js
+        format.html { redirect_to action: 'index', notice: 'Item was deleted.' }
+    	end
 		end
 	end
 
@@ -52,19 +60,35 @@ class TodoItemsController < ApplicationController
   end
 
   def update
-    if @todo_item.update(todo_item_params)
-    	if @todo_item[:deadline] < Time.now
-				complete
+
+    @todo_item.update(todo_item_params)
+    	if @todo_item[:deadline] < DateTime.now
+				@todo_item.update_attribute(:completed_at, DateTime.now)
 			else
-    		redirect_to user_todo_lists_path(current_user)
-    	end
-    end
+				@todo_item.update_attribute(:completed_at, nil)
+			end
+    	respond_to do |format|
+        format.js
+        format.html { redirect_to action: 'index', notice: 'Item was updated.' }
+      end
+    	#if @todo_item[:deadline] < Time.now
+				#complete
+			#else
+    		#redirect_to user_todo_lists_path(current_user)
  
   end
 
 	def complete
-		@todo_item.update_attribute(:completed_at, Time.now)
-		redirect_to user_todo_lists_path(current_user), notice: "Todo item completed"
+		if @todo_item.completed?
+			@todo_item.update_attribute(:completed_at, nil)
+			@todo_item.update_attribute(:deadline, nil)
+		else
+			@todo_item.update_attribute(:completed_at, DateTime.now)
+		end
+		respond_to do |format|
+        format.js
+        format.html { redirect_to action: 'index', notice: 'Item was updated.' }
+    end
 	end
 
 	private

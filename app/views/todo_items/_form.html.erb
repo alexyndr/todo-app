@@ -1,5 +1,6 @@
-<%=  form_for [@todo_list, @todo_list.todo_items.build], remote: true, html: {class: "formsignin"} do |f| %>
-	<%= f.text_field :content, placeholder: "New Todoss" %>
+<%=  form_with model:([@todo_list, @todo_list.todo_items.build]), remote: true do |f| %>
+	<%= f.text_field :content, placeholder: "New Todoss", class: "my_id" %>
 	<%= f.submit %>
 <% end %>
+
 

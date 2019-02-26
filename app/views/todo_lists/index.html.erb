@@ -1,35 +1,16 @@
-<% @todo_lists.each do |todo_list| %>
-  <% @todo_list = todo_list %>
-  <div class="container">
-    <div class="index_row clearfix" >
-      <div class="todo_list_title clearfix" >
-        <p><%= todo_list.title %></p>
-      </div>
-      <div id="todo_items_wrapper">
-        <%= render todo_list.todo_items %>
-        <div id="form">
-          <%= render "todo_items/form" %>
-        </div>
-      </div>
-      <div class="links">
-        <%= link_to 'Edit', edit_user_todo_list_path(@user, todo_list) %> 
-        ---
-        <%#= link_to 'Back', user_todo_lists_path(@user) %>
-        <%= link_to 'Delete List', user_todo_list_path(current_user, todo_list), method: :delete %>
-      </div>
-    </div>
-  </div>
-<% end %>
+
+<div id="blocks">
+    <%= render @todo_lists %>
+</div>
 
 <div class="container">
-  <div class="new_list">
-    <div id='new_post'>
-      <%= link_to "New List", new_user_todo_list_path(current_user), remote: true %>
+  <div id='new_post'>
+    <div class="links">
+      <div class="new_list">
+          <%= link_to "New List", new_user_todo_list_path(current_user), remote: true %>
+      </div>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     </div>
-  </div>
-
-  <div class="links">
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
   </div>
 </div>
 

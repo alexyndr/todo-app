@@ -1,0 +1,25 @@
+    
+      <div class="container">
+        <% @todo_list = todo_list %>
+        <div class="index_row clearfix" >
+          <div id="list_<%= todo_list[:id] %>">
+            <div class="todo_list_title clearfix" >
+              <p><%= todo_list.title %></p>
+            </div>
+            <div class="todo_items_wrapper">
+              <div class="items_list">
+                <%= render todo_list.todo_items %>
+                <%#= render 'todo_list.todo_items', locals: { todo_items: @todo_list.todo_items } %>
+              </div>
+              <div class="form">
+                <%= render "todo_items/form" %>
+              </div>
+            </div>
+            <div class="links">
+                <%= link_to 'Edit', edit_user_todo_list_path(@user, todo_list), remote: true %> 
+              <%#= link_to 'Back', user_todo_lists_path(@user) %>
+              <tr><%= link_to 'Delete List', user_todo_list_path(current_user, todo_list), method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: "delete" %></tr>
+            </div>
+          </div>
+        </div>
+      </div>
