@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 2019_02_06_181056) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "completed_at"
+<<<<<<< HEAD
+=======
+    t.datetime "deadline"
+>>>>>>> 6e7083d... Initial Commit
     t.index ["todo_list_id"], name: "index_todo_items_on_todo_list_id"
   end
 
