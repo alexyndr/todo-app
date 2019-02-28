@@ -3,22 +3,32 @@
         <% @todo_list = todo_list %>
         <div class="index_row clearfix" >
           <div id="list_<%= todo_list[:id] %>">
-            <div class="todo_list_title clearfix" >
-              <p><%= todo_list.title %></p>
+            <div class="row clearfix">
+              <div class='icon'>
+                <%= link_to destroy_user_session_path, method: :delete, data: { confirm: 'Do you want exit?' } do %>
+                  <i class="far fa-calendar-alt fa-2x"></i>
+                <% end %>
+              </div>
+              <div class="todo_list_title">
+                <p><%= todo_list.title %></p>
+              </div>
+              <div class="top_links">
+                <%= link_to edit_user_todo_list_path(@user, todo_list), remote: true do %> 
+                  <i class="fas fa-pencil-alt fa-2x">  | </i>
+                <% end %>
+                <%= link_to user_todo_list_path(current_user, todo_list), method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: "delete" do %>
+                  <i class="far fa-trash-alt fa-2x"></i>
+                <% end %>
+              </div>
             </div>
             <div class="todo_items_wrapper">
+              <div class="form">
+                <%= render "todo_items/form" %>
+              </div>
               <div class="items_list">
                 <%= render todo_list.todo_items %>
                 <%#= render 'todo_list.todo_items', locals: { todo_items: @todo_list.todo_items } %>
               </div>
-              <div class="form">
-                <%= render "todo_items/form" %>
-              </div>
-            </div>
-            <div class="links">
-                <%= link_to 'Edit', edit_user_todo_list_path(@user, todo_list), remote: true %> 
-              <%#= link_to 'Back', user_todo_lists_path(@user) %>
-              <tr><%= link_to 'Delete List', user_todo_list_path(current_user, todo_list), method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: "delete" %></tr>
             </div>
           </div>
         </div>

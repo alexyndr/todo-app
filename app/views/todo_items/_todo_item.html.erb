@@ -8,7 +8,9 @@
 				<div class="complete">
 					<%#= check_box_tag "acept", todo_item.id %>
 					<%#= render partial: 'todo_items/check', locals: {todo_item: todo_item, current_user: current_user} %>
-					<%= link_to "Mark as Complete", complete_user_todo_list_todo_item_path(current_user, todo_item[:todo_list_id], todo_item.id), method: :patch, remote: true %>
+					<%= link_to complete_user_todo_list_todo_item_path(current_user, todo_item[:todo_list_id], todo_item.id), method: :patch, remote: true, class: "checkbox" do %>
+						<input type="checkbox" checked="true" value="" style="zoom:1.5; vertical-align:middle;">
+					<% end %>
 				</div>
 				<div class="todo_item">
 					<p><strike style="opacity: 0.4;"><%= todo_item.content %></strike></p>
@@ -17,7 +19,9 @@
 			<% else %>
 				<div class="complete">
 					<%#= render partial: 'todo_items/check', locals: {todo_item: todo_item, current_user: current_user} %>
-					<%= link_to "Mark as Complete", complete_user_todo_list_todo_item_path(current_user, todo_item[:todo_list_id], todo_item.id), method: :patch, remote: true %>
+					<%= link_to complete_user_todo_list_todo_item_path(current_user, todo_item[:todo_list_id], todo_item.id), method: :patch, remote: true, class: "checkbox" do %>
+						<input type="checkbox" value="" style="zoom:1.5; vertical-align:middle;">
+					<% end %>				
 				</div>
 				<div class="todo_item">
 					<p><%= todo_item.content %></p>

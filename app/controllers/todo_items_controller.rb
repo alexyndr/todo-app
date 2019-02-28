@@ -23,10 +23,10 @@ class TodoItemsController < ApplicationController
 
 	def create
 		@todo_item = @todo_list.todo_items.create(todo_item_params)
-		respond_to do |format|
-        format.js
-        format.html { redirect_to action: 'index', notice: 'Item was created.' }
-    end
+			respond_to do |format|
+	        format.js
+	        format.html { redirect_to action: 'index', notice: 'Item was created.' }
+	    end
 	end
 
 	def move_up

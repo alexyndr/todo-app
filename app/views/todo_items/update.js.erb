@@ -1,5 +1,4 @@
-$('#list_<%= @todo_list[:id] %> form').last().remove()
-$('#list_<%= @todo_list[:id] %> .todo_list_title').show().parent();
+$('#list_<%= @todo_list[:id] %> form').last().remove();
+$('#list_<%= @todo_list[:id] %> .row').show().parent();
 $('#list_<%= @todo_list[:id] %> .todo_items_wrapper').show().parent();
 $('#list_<%= @todo_list[:id] %> #item_<%= @todo_item.id %>').replaceWith("<%= j render @todo_item %>");
-$('#list_<%= @todo_list[:id] %> .links').show().parent();

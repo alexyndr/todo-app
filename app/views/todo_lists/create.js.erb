@@ -1,4 +1,3 @@
-$('#new_post form').remove();
+$('#blocks .container').last().remove();
 $('body #blocks').append("<%= j render @todo_list %>");
-$('#new_post .index_row').remove();
-$('#new_post .links').show();
+$('#blocks .new_list').show().detach().appendTo('#blocks');
