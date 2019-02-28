@@ -29,7 +29,7 @@ gem 'devise'
 # Use ActiveStorage variant
 gem 'jquery-rails'
 # gem 'mini_magick', '~> 4.8'
-gem 'bootstrap'
+gem "bootstrap", ">= 4.3.1"
 
 gem 'acts_as_list'
 # Use Capistrano for deployment
