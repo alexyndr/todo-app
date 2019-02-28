@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 2019_02_19_202857) do
     t.datetime "completed_at"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 6e7083d... Initial Commit
     t.datetime "deadline"
 >>>>>>> 6e7083d... Initial Commit
 =======
