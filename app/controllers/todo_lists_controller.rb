@@ -40,6 +40,8 @@ class TodoListsController < ApplicationController
         format.js
         format.html { redirect_to action: 'index', notice: 'List was updated.' }
       end
+    else
+      flash[:danger] = 'List cannot be empty'
     end
   end
 
@@ -54,6 +56,8 @@ class TodoListsController < ApplicationController
         format.js
         format.html { redirect_to action: 'index', notice: 'List was successfully created.' }
       end
+    else
+      flash[:danger] = 'List cannot be empty'
     end
   end
 

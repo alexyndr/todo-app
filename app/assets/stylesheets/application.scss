@@ -15,9 +15,9 @@
  */
 @import "bootstrap";
 
- $white_opaque: rgba(250, 250, 250, .3);
- $gray_opaque: rgba(230, 230, 230, .3);
- $dark: #1F7972;
+ $white_opaque: rgba(230, 230, 230, .5);
+ $gray_opaque: rgba(210, 210, 210, .3);
+ $dark: #333333	;
 
 * {
 	box-sizing: border-box;
@@ -27,11 +27,11 @@ html {
 }
 
 body {
-  background: -webkit-linear-gradient(40deg, #1a1a1a 10%, #a0a0a0 100%);
-  background:    -moz-linear-gradient(40deg, #1a1a1a 10%, #a0a0a0 100%);
-  background:     -ms-linear-gradient(40deg, #1a1a1a 10%, #a0a0a0 100%);
-  background:      -o-linear-gradient(40deg, #1a1a1a 10%, #a0a0a0 100%);
-  background:         linear-gradient(40deg, #1a1a1a 10%, #a0a0a0 100%);
+  background: -webkit-image-url('4.jpg');
+  background:    -moz-image-url('4.jpg');
+  background:     -ms-image-url('4.jpg');
+  background:      -o-image-url('4.jpg');
+  background:         image-url('4.jpg');
   height: 100%;
   background-attachment: fixed;
   font-family: 'Lato', sans-serif;
@@ -92,7 +92,7 @@ height:50px;
 				color: white;
 				transition: all .4s ease-in-out;
 				&:hover {
-					color: $gray_opaque;
+					color: $dark;
 				}
 			}
 		}
@@ -163,13 +163,13 @@ div[id^='item_']:hover .trash {
 			float: left;
 			align-items: left;
 			border-right: 1em;
-			border-right: 1px solid rgba(250,250,250, .3);
 			padding: 1em 0;
 		}
 		.todo_item {
 			width: 76%;
 			text-align: left;
 			float: left;
+			border-left: 1px solid rgba(250,250,250, .3);
 			border-right: 1px solid rgba(250,250,250, .3);
 			p {
 				margin: 0;

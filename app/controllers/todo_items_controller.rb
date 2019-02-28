@@ -23,10 +23,14 @@ class TodoItemsController < ApplicationController
 
 	def create
 		@todo_item = @todo_list.todo_items.create(todo_item_params)
+		if @todo_item
 			respond_to do |format|
 	        format.js
 	        format.html { redirect_to action: 'index', notice: 'Item was created.' }
 	    end
+	  else
+     flash[:danger] = 'Item cannot be empty'
+    end
 	end
 
 	def move_up
@@ -61,7 +65,7 @@ class TodoItemsController < ApplicationController
 
   def update
 
-    @todo_item.update(todo_item_params)
+    if @todo_item.update(todo_item_params)
     	if @todo_item[:deadline] < DateTime.now
 				@todo_item.update_attribute(:completed_at, DateTime.now)
 			else
@@ -71,6 +75,10 @@ class TodoItemsController < ApplicationController
         format.js
         format.html { redirect_to action: 'index', notice: 'Item was updated.' }
       end
+    else
+     flash[:danger] = 'Item cannot be empty'
+    end
+
     	#if @todo_item[:deadline] < Time.now
 				#complete
 			#else
