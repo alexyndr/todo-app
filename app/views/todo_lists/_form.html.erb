@@ -1,16 +1,12 @@
-<%= form_with model: ([@user, @todo_list]) do |form| %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<div class="index_row clearfix" >
+		<%= form_with model: ([@user, @todo_list]), remote: true do |form| %>
+			  <div class="field">
+			  	
+			    <%= form.text_field :title, placeholder: "New Title" %>
+			  </div>
+			  <div class="actions">
+			    <%= form.submit %>
+			  </div>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,3 @@
+$('#blocks .container').last().remove();
+$('body #blocks').append("<%= j render @todo_list %>");
+$('#blocks .new_list').show().detach().appendTo('#blocks');

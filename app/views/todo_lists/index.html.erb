@@ -1,22 +1,12 @@
-<% @todo_lists.each do |todo_list| %>
-  <div class="index_row clearfix">
-    <h2 class="todo_list_title">
-      <%= link_to todo_list.title, user_todo_list_path(current_user, todo_list[:id]) %>
-      <p class="todo_list_sub_title">
-        <%= todo_list.description %>
-        <%#= todo_list.user.email %>
-      </p>
-    </h2>
+
+<div id="blocks">
+    <%= render @todo_lists %>
+
+  <div class="new_list">
+    <%= link_to "New List", new_user_todo_list_path(current_user), remote: true, class: "btn btn-primary btn-lg" %>
   </div>
-<% end %>
-
-<div class="links">
-  <%= link_to "New List", new_user_todo_list_path(current_user, @todo_list) %>
 </div>
 
-<div class="links">
-  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-</div>
 
 <!--<p id="notice"><%= notice %></p>
 

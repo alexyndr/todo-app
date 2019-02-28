@@ -1,0 +1,47 @@
+[33mcommit 8ae31e5ac2e0d4f647cc9e3b803f82b964b70c26[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: alex <alexyndr@gmail/com>
+Date:   Tue Feb 12 22:41:20 2019 +0200
+
+    User log Redirect to Lists
+
+[33mcommit 98b86851f9a9448ef54b4c9c875bbf44d561ade9[m
+Author: alex <alexyndr@gmail/com>
+Date:   Mon Feb 11 20:57:44 2019 +0200
+
+    Solve Item prop
+
+[33mcommit 51d6bf758c8d9f9666d38ef429494daa504082ce[m
+Author: alex <alexyndr@gmail/com>
+Date:   Fri Feb 8 22:24:04 2019 +0200
+
+    Solve problem with fii and bosrp
+
+[33mcommit 7a8bcdfc6fedefe50ee516ecfe78deb6d2568db6[m
+Author: alex <alexyndr@gmail/com>
+Date:   Fri Feb 8 19:38:07 2019 +0200
+
+    Users insert
+
+[33mcommit 5f1b3ff7d6ad22fa794b7ff0b8f5821fafaec8b8[m
+Author: alex <alexyndr@gmail/com>
+Date:   Wed Feb 6 02:15:01 2019 +0200
+
+    Basick CSS
+
+[33mcommit 2ef15f7327f52a9df27d2692a668366533106190[m
+Author: alex <alexyndr@gmail/com>
+Date:   Tue Feb 5 02:49:37 2019 +0200
+
+    Mark as complete ability
+
+[33mcommit bbc9286f404c1c75f17e6ee639ee09ef0ad54d2a[m
+Author: alex <alexyndr@gmail/com>
+Date:   Tue Feb 5 02:04:38 2019 +0200
+
+    Added todo_list and todo_items
+
+[33mcommit 1562e49432be801bfed8b5a36a44f57311af5878[m
+Author: alex <alexyndr@gmail/com>
+Date:   Tue Feb 5 01:12:06 2019 +0200
+
+    Init commit

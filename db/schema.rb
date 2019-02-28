@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_06_181056) do
+ActiveRecord::Schema.define(version: 2019_02_19_202857) do
 
   create_table "todo_items", force: :cascade do |t|
     t.string "content"
@@ -19,9 +19,13 @@ ActiveRecord::Schema.define(version: 2019_02_06_181056) do
     t.datetime "updated_at", null: false
     t.datetime "completed_at"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     t.datetime "deadline"
 >>>>>>> 6e7083d... Initial Commit
+=======
+    t.datetime "deadline"
+>>>>>>> 6e7083d8c8d53da3fd03b74d2e70947ac28392c1
     t.index ["todo_list_id"], name: "index_todo_items_on_todo_list_id"
   end
 

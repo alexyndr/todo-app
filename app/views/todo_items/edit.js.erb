@@ -1,0 +1,3 @@
+$('#list_<%= @todo_list[:id] %> .row').hide();
+$('#list_<%= @todo_list[:id] %>').append("<%= j render 'edit' %>")
+$('#list_<%= @todo_list[:id] %> .todo_items_wrapper').hide().parent();

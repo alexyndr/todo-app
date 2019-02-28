@@ -1,5 +1,5 @@
 class TodoListsController < ApplicationController
-  before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_todo_list, only: [ :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :check_user
 
@@ -34,8 +34,14 @@ class TodoListsController < ApplicationController
   # PATCH/PUT /todo_lists/1.json
   def update
     @user = User.find(params[:user_id])
-    if @user.todo_lists.find(params[:id]).update(todo_list_params)
-      redirect_to action: 'index'
+    @todo_list = @user.todo_lists.find(params[:id])
+    if @todo_list.update(todo_list_params)
+      respond_to do |format|
+        format.js
+        format.html { redirect_to action: 'index', notice: 'List was updated.' }
+      end
+    else
+      flash[:danger] = 'List cannot be empty'
     end
   end
 
@@ -46,7 +52,12 @@ class TodoListsController < ApplicationController
     @todo_list = @user.todo_lists.create(todo_list_params)
 
     if @todo_list.save
-      redirect_to action: 'index'
+      respond_to do |format|
+        format.js
+        format.html { redirect_to action: 'index', notice: 'List was successfully created.' }
+      end
+    else
+      flash[:danger] = 'List cannot be empty'
     end
   end
 
@@ -56,9 +67,12 @@ class TodoListsController < ApplicationController
     @user = User.find(params[:user_id])
     @todo_list = @user.todo_lists.find(params[:id])
 
-    @todo_list.destroy
-
-    redirect_to action: 'index'
+    if @todo_list.destroy
+      respond_to do |format|
+        format.js
+        format.html { redirect_to action: 'index', notice: 'List was deleted.' }
+      end
+    end
   end
 
   private
@@ -76,7 +90,7 @@ class TodoListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_list_params
-      params.require(:todo_list).permit(:title, :description)
+      params.require(:todo_list).permit(:title)
     end
   
 end

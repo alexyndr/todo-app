@@ -1,15 +1,20 @@
-<h1>Home#front</h1>
-<p>Find me in app/views/home/front.html.erb</p>
+<div class="container">
+	<div class="index_row clearfix">
+		<div class="row clearfix">
+      <div class='icon'>
+              <i class="far fa-calendar-alt fa-2x"></i>
+        </div>
+      <div class="todo_list_title">
+      <p>Simple ToDo List</p>
+    </div>
+    </div>
 
-<div class="links">
-  <%= link_to "Sign Up", new_user_registration_path %>
+		<div class="links">
+		  <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+		
+		  <%= link_to "Sign In", new_user_session_path, class: "btn btn-secondary btn-lg" %>
+		</div>
+
+	
+	</div>
 </div>
-
-<div class="links">
-  <%= link_to "Sign In", new_user_session_path %>
-</div>
-
-<div class="links">
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-</div>
-
