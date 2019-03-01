@@ -1,7 +1,5 @@
-
 <div id="blocks">
     <%= render @todo_lists %>
-
   <div class="new_list">
     <%= link_to "New List", new_user_todo_list_path(current_user), remote: true, class: "btn btn-primary btn-lg" %>
   </div>
@@ -36,4 +34,3 @@
 
 <br>
 
-<%= link_to 'New Todo List', new_todo_list_path %>-->

@@ -32,7 +32,7 @@ body {
   background:     -ms-image-url('4.jpg');
   background:      -o-image-url('4.jpg');
   background:         image-url('4.jpg');
-  height: 100%;
+  height: 80%;
   background-attachment: fixed;
   font-family: 'Lato', sans-serif;
 }
@@ -72,6 +72,22 @@ text-align: center;
 .footer {
 height:50px;
 } 
+
+.btn {
+ margin: 5px 5px 5px 5px 
+} 
+
+.field {
+	padding: 1em 0;
+}
+
+.links_device {
+			color: white;
+			transition: all .4s ease-in-out;
+			&:hover {
+				color: $dark;
+			}
+}
 
 .new_list {
 	padding: 3em 0;
