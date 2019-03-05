@@ -1,1 +1,6 @@
 	$('#blocks .new_list').hide().parent().append("<%= j render 'new' %>");
+	$('.container').last()[0].scrollIntoView({
+            behavior: 'auto',
+            block: 'center',
+            inline: 'center'
+});

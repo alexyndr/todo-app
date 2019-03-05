@@ -1,7 +1,19 @@
-	
+		<div class="row clearfix">
+      <div class='icon'>
+              <i class="far fa-calendar-alt fa-2x"></i>
+        </div>
+      <div class="todo_list_title">
+      <p>Edit Todo Item</p>
+    </div>
+    </div> 
+    <div class="index_row clearfix" style="padding: 0 2em" >
 		<%= form_with model: ([@todo_list, @todo_item]), remote: true do |f| %>
-			<%= f.text_field :content, placeholder: "Edit Todoss" %>
-			<%= f.date_select :deadline, start_year: DateTime.now.year, default: 3.days.from_now %>
+		<div class="field">
+			<%= f.text_area :content, placeholder: "Edit Todoss" %>
+		</div>
+			<%= f.text_field :deadline ,placeholder: "Click to choose deadline", start_year: DateTime.now.year, class: "w-50" %>
 			<%= f.submit %>
 		<% end %>
+		</div>
+    
 

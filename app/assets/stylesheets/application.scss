@@ -12,12 +12,13 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui/datepicker
  */
 @import "bootstrap";
 
  $white_opaque: rgba(230, 230, 230, .5);
  $gray_opaque: rgba(210, 210, 210, .3);
- $dark: #333333	;
+ $dark: #555555	;
 
 * {
 	box-sizing: border-box;
@@ -32,10 +33,20 @@ body {
   background:     -ms-image-url('4.jpg');
   background:      -o-image-url('4.jpg');
   background:         image-url('4.jpg');
-  height: 80%;
   background-attachment: fixed;
+  background-size: cover;
+  background-position: center top;
   font-family: 'Lato', sans-serif;
 }
+
+#outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+} 
 
 .clearfix:before,
 .clearfix:after {
@@ -58,6 +69,12 @@ body {
 text-align: center;
 }
 
+#blocks {
+	display: table-cell;
+  vertical-align: middle;
+  
+}
+
 .container {
 	width: 70%;
 	max-width: 750px;
@@ -65,7 +82,7 @@ text-align: center;
 	margin: 3em auto 0 auto;
 	border-radius: 7px;
 	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
-	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
+	box-shadow: 0 0 5px 5px rgba(0,0,0,.04);
 	padding: 1em 0;
 }
 

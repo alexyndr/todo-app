@@ -1,3 +1,4 @@
+$('#list_<%= @todo_list[:id] %> .items_list').show();
 $('#list_<%= @todo_list[:id] %> .items_list').append("<%= j render @todo_item %>");
 $(".my_id").val("");
 $('#list_<%= @todo_list[:id] %> #item_').remove();

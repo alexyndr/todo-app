@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.3.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,12 +28,13 @@ gem 'devise'
 # Use ActiveStorage variant
 gem 'jquery-rails'
 # gem 'mini_magick', '~> 4.8'
-gem "bootstrap", ">= 4.3.1"
-
-gem 'acts_as_list'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'acts_as_list'
 
+gem "bootstrap", ">= 4.3.1"
+
+gem 'jquery-ui-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -52,7 +52,7 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
 
-  gem 'sqlite3', '~> 1.3.13'
+  gem 'sqlite3'
 end
 
 group :test do

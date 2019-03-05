@@ -1,3 +1,13 @@
 $('#list_<%= @todo_list[:id] %> .row').hide();
 $('#list_<%= @todo_list[:id] %>').append("<%= j render 'edit' %>")
+$(function() {
+  $('#todo_item_deadline').datepicker({
+  dateFormat: "yy-mm-dd"
+});
+});
 $('#list_<%= @todo_list[:id] %> .todo_items_wrapper').hide().parent();
+$('#list_<%= @todo_list[:id] %>')[0].scrollIntoView({
+            behavior: 'auto',
+            block: 'center',
+            inline: 'center'
+});
