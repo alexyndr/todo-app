@@ -11,7 +11,7 @@
 		<div class="field">
 			<%= f.text_area :content, placeholder: "Edit Todoss" %>
 		</div>
-			<%= f.text_field :deadline ,placeholder: "Click to choose deadline", start_year: DateTime.now.year, class: "w-50" %>
+			<%= f.text_field :deadline ,placeholder: "Click to choose deadline", start_year: DateTime.now.year, style: "width: 72%;" %>
 			<%= f.submit %>
 		<% end %>
 		</div>

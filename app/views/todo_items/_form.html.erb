@@ -1,5 +1,5 @@
 <%=  form_with model:([@todo_list, @todo_list.todo_items.build]), remote: true do |f| %>
-	<%= f.text_field :content, placeholder: "Star typing here to create a task...", class: "my_id" %>
+	<%= f.text_field :content, placeholder: "Start typing here to create a task...", class: "my_id" %>
 	<%= f.submit %>
 <% end %>
 
