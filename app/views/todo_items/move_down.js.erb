@@ -1,1 +1,1 @@
-$('#list_<%= @todo_list[:id] %> .items_list').html("<%= j render @todo_list.todo_items %>");
+$('#list_<%= @todo_list[:id] %> .items_list').html("<%= j render @todo_list.todo_items.reverse %>");

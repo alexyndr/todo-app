@@ -1,7 +1,6 @@
 <div class="index_row clearfix" style="padding: 0 2em" >
 		<%= form_with model: ([@user, @todo_list]), remote: true do |form| %>
-			  <div class="field">
-			  	
+			  <div class="field">	
 			    <%= form.text_area :title, class: "h-25", placeholder: "Star typing here to create a project..." %>
 			  </div>
 			  <div class="actions">

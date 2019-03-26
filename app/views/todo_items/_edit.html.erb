@@ -9,7 +9,7 @@
     <div class="index_row clearfix" style="padding: 0 2em" >
 		<%= form_with model: ([@todo_list, @todo_item]), remote: true do |f| %>
 		<div class="field">
-			<%= f.text_area :content, placeholder: "Edit Todoss" %>
+			<%= f.text_area :content, placeholder: "Edit Todoss", style: "margin: 0;" %>
 		</div>
 			<%= f.text_field :deadline ,placeholder: "Click to choose deadline", start_year: DateTime.now.year, style: "width: 72%;" %>
 			<%= f.submit %>

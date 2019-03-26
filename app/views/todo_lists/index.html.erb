@@ -1,7 +1,10 @@
 
     <%= render @todo_lists %>
   <div class="new_list">
-    <%= link_to "New List", new_user_todo_list_path(current_user), remote: true, class: "btn btn-primary btn-lg" %>
+    <%= link_to new_user_todo_list_path(current_user), remote: true, class: "btn btn-primary btn-lg" do %>
+     <i class="fa fa-plus fa-lg"></i>
+     <text>Add TODO List</text>
+    <% end %>
   </div>
 
 

@@ -14,10 +14,10 @@
               </div>
               <div class="top_links">
                 <%= link_to edit_user_todo_list_path(@user, todo_list), remote: true do %> 
-                  <i class="fas fa-pencil-alt fa-2x">  | </i>
+                  <i class="fas fa-pencil-alt fa-lg">  | </i>
                 <% end %>
                 <%= link_to user_todo_list_path(current_user, todo_list), method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: "delete" do %>
-                  <i class="far fa-trash-alt fa-2x"></i>
+                  <i class="far fa-trash-alt fa-lg"></i>
                 <% end %>
               </div>
             </div>
@@ -26,7 +26,7 @@
                 <%= render "todo_items/form" %>
               </div>
               <div class="items_list">
-                <%= render todo_list.todo_items %>
+                <%= render todo_list.todo_items.reverse %>
               </div>
             </div>
           </div>
