@@ -4,5 +4,5 @@ class TodoList < ApplicationRecord
 	belongs_to :user
 
 	validates :title, presence: true
-	validates :title, length: {maximum: 40}
+	validates :title, length: {maximum: 70}
 end

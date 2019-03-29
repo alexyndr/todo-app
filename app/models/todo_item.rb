@@ -3,7 +3,7 @@ class TodoItem < ApplicationRecord
   acts_as_list scope: :todo_list
 
   validates :content, presence: true
-  validates :content, length: {maximum: 150}
+  validates :content, length: {maximum: 250}
   
 
   def completed?

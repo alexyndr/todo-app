@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'home/front'
-  devise_for :users
+  devise_for :users, controllers: {
+        sessions: 'users/sessions'
+      }
 
   resources :todo_lists do
   	resources :todo_items do

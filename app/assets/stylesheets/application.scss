@@ -176,7 +176,6 @@ height:50px;
 		}
 		i {
 			color: $white_opaque;
-			transition: all .4s ease-in-out;
 		}
 	}
 }
@@ -241,8 +240,6 @@ div[id^='item_']:hover .trash {
 }
 
 a {
-	position: inline-block;
-	position: relative;
 	.fa-chevron-up {
 		transform: scale(1,0.5);
 	}
@@ -250,11 +247,18 @@ a {
 		transform: scale(1,0.5);
 	}
 }
+
 .trash div[class="fa-chevron-up"] + div[class="fa-chevron-down"]{
 	border-top: 1px solid $light_gray;
 	border-left: 1px solid $light_gray;
 	border-right: 1px solid $light_gray;
 }
+
+.top_links > a + a {
+	    margin-left: 2px;
+	    padding-left: 7px;
+	    border-left: 3px solid $white_opaque;
+	}
 
 .todo_items_wrapper {
 	.row {
@@ -293,12 +297,18 @@ a {
 			float: left;
 			text-align: center;
 			padding: 1em 0;
-		}
-		i {
+			i {
 			color: $dark;
-			transition: all .4s ease-in-out;
+			}
 		}
 	}
+
+	.trash > a + a {
+	    margin-left: 2px;
+	    padding-left: 5px;
+	    border-left: 1px solid #bbb;
+	}
+
 	.form {
 		margin-top: 0;
 		margin-bottom: 0;
