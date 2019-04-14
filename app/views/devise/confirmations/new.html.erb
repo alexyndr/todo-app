@@ -2,31 +2,23 @@
 	<div class="index_row clearfix">
 		<div class="row clearfix">
       <div class='icon'>
-              <i class="far fa-calendar-alt fa-2x"></i>
-        </div>
+        <i class="far fa-calendar-alt fa-2x"></i>
+      </div>
       <div class="todo_list_title">
-      <p>Simple ToDo List</p>
-    </div>    
+        <p>Simple ToDo List</p>
+      </div>    
+    </div>
+    <h2>Resend confirmation instructions</h2>
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Resend confirmation instructions" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
   </div>
-
-<h2>Resend confirmation instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
-
-	
-	</div>
 </div>

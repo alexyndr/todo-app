@@ -3,20 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
-
-  resources :todo_lists do
-  	resources :todo_items do
-  		member do
-  			patch :complete
-        patch :deadline
-        get :deadline
-        put :move_up
-        put :move_down
-  		end
-  	end
-  end
-  #=end
-
+      
   resources :users do
     resources :todo_lists do
       resources :todo_items do
@@ -30,7 +17,11 @@ Rails.application.routes.draw do
       end
     end
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  #root "todo_lists#index"
+
+  resources :todo_lists do
+    resources :todo_items do
+    end
+  end
+
   root :to => "home#front"
 end

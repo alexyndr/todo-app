@@ -6,21 +6,6 @@ class TodoItemsController < ApplicationController
 		@todo_item = @todo_list.todo_items.new
 	end
 
-=begin
-	def deadline
-		#puts @todo_item.inspect
-		@todo_item.update(todo_item_params)
-		if @todo_item[:deadline] < Time.now
-			@todo_item.update_attribute(:completed_at, nil)
-			complete
-		else
-			@todo_item.update_attribute(:completed_at, Time.now)
-			complete
-		end
-		#redirect_to user_todo_lists_path(current_user), notice: "Deadline is added"
-	end
-=end
-
 	def create
 		@todo_item = @todo_list.todo_items.create(todo_item_params)
 		if @todo_item
@@ -64,7 +49,6 @@ class TodoItemsController < ApplicationController
   end
 
   def update
-
     if @todo_item.update(todo_item_params)
     	if @todo_item[:deadline] != nil
 	    	if @todo_item[:deadline] < DateTime.now
@@ -80,12 +64,6 @@ class TodoItemsController < ApplicationController
     else
      flash[:danger] = 'Item cannot be empty'
     end
-
-    	#if @todo_item[:deadline] < Time.now
-				#complete
-			#else
-    		#redirect_to user_todo_lists_path(current_user)
- 
   end
 
 	def complete

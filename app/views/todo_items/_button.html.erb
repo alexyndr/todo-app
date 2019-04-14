@@ -5,10 +5,10 @@
 	<%= link_to edit_user_todo_list_todo_item_path(current_user, todo_item[:todo_list_id], todo_item.id), remote: true do %>
 		<i class="fas fa-pencil-alt fa-sm"></i>
 	<% end %>
-		<%= link_to move_down_user_todo_list_todo_item_path(current_user, todo_item[:todo_list_id], todo_item.id), method: :put, remote: true do %>
-			<i class="fas fa-chevron-up fa-sm"></i>
-		<% end %>
-		<%= link_to move_up_user_todo_list_todo_item_path(current_user, todo_item[:todo_list_id], todo_item.id), method: :put, remote: true do %>
-			<i class="fas fa-chevron-down fa-sm"></i>
-		<% end %>
+	<%= link_to move_down_user_todo_list_todo_item_path(current_user, todo_item[:todo_list_id], todo_item.id), method: :put, remote: true do %>
+		<i class="fas fa-chevron-up fa-sm"></i>
+	<% end %>
+	<%= link_to move_up_user_todo_list_todo_item_path(current_user, todo_item[:todo_list_id], todo_item.id), method: :put, remote: true do %>
+		<i class="fas fa-chevron-down fa-sm"></i>
+	<% end %>
 </div>
